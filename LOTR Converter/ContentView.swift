@@ -10,6 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State var leftAmount = ""
     @State var rightAmount = ""
+    @State var leftCurrency: Currency = .silverPiece
+    @State var rightCurrency: Currency = .goldPiece
+    @State var showSelectedCurrency = false
+    @State var showExchangeInfo = false
     
     var body: some View {
         ZStack {
@@ -37,17 +41,23 @@ struct ContentView: View {
                         // currency
                         HStack {
                             // currency image
-                            Image("silverpiece")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 33)
+                            Image(CurrencyImage.allCases[Currency.allCases.firstIndex(of: leftCurrency)!].rawValue)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 33)
                             
                             // currency text
-                            Text("Silver Piece")
+                            Text(CurrencyText.allCases[Currency.allCases.firstIndex(of: leftCurrency)!].rawValue)
                                 .font(.headline)
                                 .foregroundColor(.white)
                         }
                         .padding(.bottom, -5)
+                        .onTapGesture {
+                            showSelectedCurrency.toggle()
+                        }
+                        .sheet(isPresented: $showSelectedCurrency) {
+                            SelectCurrency(leftCurrency: $leftCurrency, rightCurrency: $rightCurrency)
+                        }
                         
                         // Text field
                         TextField("Amount", text: $leftAmount)
@@ -66,17 +76,23 @@ struct ContentView: View {
                         // currency
                         HStack {
                             // currency text
-                            Text("Gold Piece")
+                            Text(CurrencyText.allCases[Currency.allCases.firstIndex(of: rightCurrency)!].rawValue)
                                 .font(.headline)
                                 .foregroundColor(.white)
                             
                             // currency image
-                            Image("goldpiece")
+                            Image(CurrencyImage.allCases[Currency.allCases.firstIndex(of: rightCurrency)!].rawValue)
                                 .resizable()
                                 .scaledToFit()
                                 .frame(height: 33)
                         }
                         .padding(.bottom, -5)
+                        .onTapGesture {
+                            showSelectedCurrency.toggle()
+                        }
+                        .sheet(isPresented: $showSelectedCurrency) {
+                            SelectCurrency(leftCurrency: $leftCurrency, rightCurrency: $rightCurrency)
+                        }
                         
                         // Text Field
                         TextField("Right Amount", text: $rightAmount)
@@ -97,13 +113,16 @@ struct ContentView: View {
                     Spacer()
                     
                     Button {
-                        // display exchange info screen
+                        showExchangeInfo.toggle()
                     } label: {
                         Image(systemName: "info.circle.fill")
                     }
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .padding(.trailing)
+                    .sheet(isPresented: $showExchangeInfo) {
+                        ExchangeInfo()
+                    }
                 }
             }
         }
