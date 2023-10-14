@@ -24,6 +24,7 @@
 		49585D3D2ADADE500083431B /* CurrenyIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyIcon.swift; sourceTree = "<group>"; };
 		49585D3F2ADAE3030083431B /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		49585D412ADAEAB40083431B /* IconGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGrid.swift; sourceTree = "<group>"; };
+		49585D432ADB042C0083431B /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		499F87132AD7A1CA00E41815 /* ExchangeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeInfo.swift; sourceTree = "<group>"; };
 		499F87152AD7A49400E41815 /* ExchangeRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRate.swift; sourceTree = "<group>"; };
 		49B2411A2AD651FE00800E5B /* LOTR Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LOTR Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +48,7 @@
 		49B241112AD651FE00800E5B = {
 			isa = PBXGroup;
 			children = (
+				49585D432ADB042C0083431B /* MyPlayground.playground */,
 				49B2411C2AD651FE00800E5B /* LOTR Converter */,
 				49B2411B2AD651FE00800E5B /* Products */,
 			);
